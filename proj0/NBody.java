@@ -3,7 +3,6 @@
  */
 
 public class NBody{
-
 	public static double readRadius(String filename){
 		In in = new In(filename);
 		int num = in.readInt();
@@ -38,6 +37,29 @@ public class NBody{
         String filename = args[2];
         double r = readRadius(filename);
         Planet[] planets = readPlanets(filename);
-        // 
+		int num = planets.length;
+
+        // draw the background
+		StdDraw.setXscale(-r,r);  // set the x and y scale
+		StdDraw.setYscale(-r,r);
+		StdDraw.enableDoubleBuffering();   // enable efficient drawing which enables drawing simultaneously
+
+		// draw the picture
+		StdDraw.picture(0, 0, "images/starfield.jpg");
+
+		// draw the whole planets
+		int t = 0;
+		while (t < T){
+			double[] xForce = new double[num];
+			double[] yForce = new double[num];
+			for (int i = 0; i < num; i++){
+				//save the force
+				xForce[i] = planets[i].calcNetForceExertedByX(planets);
+				yForce[i] = planets[i].calcNetForceExertedByY(planets);
+				
+				// update the current position
+				
+			}
+		}
     }
 }
