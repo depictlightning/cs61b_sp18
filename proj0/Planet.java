@@ -102,6 +102,11 @@ public class Planet {
 		xxPos += xxVel * dt;
 		yyPos += yyVel * dt;
 	}
-
+	/**
+	 *  draw the Planet’s image at the Planet’s position
+	 */
+	public void draw(){
+		StdDraw.picture(xxPos,yyPos,imgFileName);
+	}
 
 }
